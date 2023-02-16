@@ -15,10 +15,9 @@ class HomeRouter{
         let router = HomeRouter()
         let interector = HomeInterector()
         
-        let presenter = HomePresenter(view: nil, router: router, interector: interector)
+        let presenter = HomePresenter(router: router, interector: interector)
         let view = HomeView(presenter: presenter)
         
-        presenter.view = view
         router.presenter = presenter
         router.view = view
         

@@ -12,6 +12,8 @@ let amiibos: [AmiiboSimple] = load("amiibo.json")
 
 class HomeInterector {
     func loadList(callback: @escaping ([AmiiboSimple]) -> Void ) {
-        callback(load("amiibo.json"))
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            callback(load("amiibo.json"))
+        }
     }
 }

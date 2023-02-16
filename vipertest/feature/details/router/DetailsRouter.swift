@@ -16,11 +16,9 @@ class DetailsRouter{
         
         let router = DetailsRouter()
         let interector = DetailsInterector()
-        let presenter = DetailsPresenter(view: nil, router: router, interector: interector)
+        let presenter = DetailsPresenter(router: router, interector: interector)
 
-        var view = DetailView(presenter: presenter, tail: tail)
-      
-        view.presenter = presenter
+        let view = DetailView(presenter: presenter, tail: tail)
         router.presenter = presenter
         router.view = view
        

@@ -14,12 +14,10 @@ class DetailsPresenter : ObservableObject{
     @Published var amiibo : Amiibo? = nil
     @Published var error: Bool = false
     
-    var view: DetailView?
     let router: DetailsRouter
     var interector: DetailsInterector
     
-    init(view:DetailView?, router: DetailsRouter, interector:DetailsInterector){
-        self.view = view
+    init(router: DetailsRouter, interector:DetailsInterector){
         self.router = router
         self.interector = interector
     }

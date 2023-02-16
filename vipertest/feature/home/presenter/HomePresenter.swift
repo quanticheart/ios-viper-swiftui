@@ -15,12 +15,10 @@ class HomePresenter: ObservableObject{
     @Published var amiibosList : [AmiiboSimple] = []
     private var r = [UUID]()
     
-    var view: HomeView?
     var router: HomeRouter
     var interector: HomeInterector
     
-    init(view:HomeView?, router: HomeRouter, interector:HomeInterector){
-        self.view = view
+    init(router: HomeRouter, interector:HomeInterector){
         self.router = router
         self.interector = interector
     }

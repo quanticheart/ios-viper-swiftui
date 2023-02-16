@@ -8,12 +8,8 @@ struct DetailView: View {
     let tail: String
     
     var body: some View {
-        if(presenter.amiibo == nil) {
-            Text("Loading ....").onAppear(){
-                presenter.getDetails(tail: self.tail)
-            }
-        } else {
-             List{
+        LoadingView(status: presenter.amiibo == nil){
+            List{
                 VStack {
                     RemoteImage(url: presenter.amiibo?.image ?? "")
                     Text("\(presenter.amiibo?.amiiboSeries ?? "") - \(presenter.amiibo?.character ?? "")")
@@ -44,6 +40,8 @@ struct DetailView: View {
                 .padding()
                 .navigationBarTitle(Text(presenter.amiibo?.name ?? ""), displayMode: .inline)
             }
+        }.onAppear(){
+            presenter.getDetails(tail: self.tail)
         }
     }
 }
